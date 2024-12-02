@@ -1,36 +1,33 @@
 <template>
-  <div class="name">
-    {{ name }}
-    </div>
-    <button v-on:click="updateName" class="btn btn-primary">Click</button>
+  <div :class="nameClass">{{name}}</div>
+  <input :type="type" :value="name">
+  <button @click="updateName">Click</button>
 </template>
 
 <script>
-import { reactive } from 'vue';
+import { ref } from 'vue';
 export default {
   setup(){
-    let name = reactive({
-      id: 1
-    });
+    const name = ref('Kossie');
+    const type = ref('number');
+    const nameClass = ref('');
 
-    // const greeting = (name) =>{
-    //   return 'Hello, ' + name;
-    // };
-
-    // const greet = greeting(name)
-
-    const updateName = () =>{
-      name.id = 2;
+    const updateName = () => {
+      name.value = 'Coder';
+      type.value = 'text';
+      nameClass.value = 'name'
     }
+    return({
+      name,
+      updateName,
+      type,
+      nameClass,
+    })
 
-    return {
-      name ,
-      updateName
-    }
   }
 }
 </script>
 
 <style>
-  .name { color: red; }
+  .name{color:red;}
 </style>
