@@ -1,14 +1,24 @@
 <template>
-  <div class="name">{{ name }}</div>
+  <div class="name">
+    {{ greet }}
+    </div>
 </template>
 
 <script>
 export default {
   setup(){
-    const name = 'Kossie Coder';
+    const name = 'Kossie Coder2';
+
+    const greeting = (name) =>{
+      return 'Hello, ' + name;
+    };
+
+    const greet = greeting(name)
 
     return {
-      name
+      name,
+      greeting,
+      greet
     }
   }
 }
