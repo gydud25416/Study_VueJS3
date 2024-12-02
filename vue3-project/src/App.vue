@@ -6,9 +6,12 @@
 </template>
 
 <script>
+import { reactive } from 'vue';
 export default {
   setup(){
-    let name = 'Kossie Coder1';
+    let name = reactive({
+      id: 1
+    });
 
     // const greeting = (name) =>{
     //   return 'Hello, ' + name;
@@ -17,7 +20,7 @@ export default {
     // const greet = greeting(name)
 
     const updateName = () =>{
-      name = 'Kossie Coder';
+      name.id = 2;
     }
 
     return {
